@@ -22,7 +22,6 @@ export default (app) ->
       { ctx } = @
       code = @ctx.query.code
       ctx.body = await ctx.service.wechat.code code
-      dd ctx.body
       @ctx.redirect 'http://www.baidu.com'
 
   return WechatController

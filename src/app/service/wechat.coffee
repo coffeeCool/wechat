@@ -67,5 +67,7 @@ export default (app) ->
         method: 'get'
         dataType: 'json'
       
-      buf_token = new Buffer result_token.data
-      end_token = JSON.parse buf_token.toString()
+      buf_userInfo = new Buffer result_token.data
+      dd JSON.parse buf_userInfo.toString()
+      end_userInfo = JSON.parse buf_userInfo.toString()
+      
