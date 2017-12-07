@@ -1,6 +1,5 @@
 import config from '../config/config.default'
 import sha1 from 'sha1'
-import crypto from 'crypto'
 import dd from 'ddeyes'
 import urlencode from 'urlencode'
 

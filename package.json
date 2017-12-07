@@ -10,13 +10,11 @@
   "dependencies": {
     "coffeescript": "^2.0.1",
     "cookie": "^0.3.1",
-    "crypto": "^1.0.1",
     "dd": "^0.6.0",
     "egg": "^1.9.0",
     "egg-bin": "^4.3.3",
     "egg-validate": "^1.0.0",
     "egg-view-nunjucks": "^2.1.4",
-    "fs": "^0.0.1-security",
     "sha1": "^1.1.1",
     "supertest": "^3.0.0",
     "tape": "^4.8.0",
