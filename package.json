@@ -1,0 +1,31 @@
+{
+  "name": "wechat",
+  "version": "1.0.0",
+  "author": "zihan <hewentaowx@gmail.com>",
+  "description": "wechat",
+  "private": true,
+  "scripts": {
+    "dev": "egg-bin dev"
+  },
+  "dependencies": {
+    "coffeescript": "^2.0.1",
+    "cookie": "^0.3.1",
+    "crypto": "^1.0.1",
+    "dd": "^0.6.0",
+    "egg": "^1.9.0",
+    "egg-bin": "^4.3.3",
+    "egg-validate": "^1.0.0",
+    "egg-view-nunjucks": "^2.1.4",
+    "fs": "^0.0.1-security",
+    "sha1": "^1.1.1",
+    "supertest": "^3.0.0",
+    "tape": "^4.8.0",
+    "urlencode": "^1.1.0"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "coffee-require": "^0.0.3",
+    "ddeyes": "^0.0.4",
+    "shelljs": "^0.7.8"
+  }
+}
