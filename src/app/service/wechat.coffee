@@ -13,6 +13,17 @@ export default (app) ->
       url = "#{url}"
       await @ctx.curl url
     
+    request1: (url, opts) ->
+      url = "#{url}"
+      opts = {
+        headers: 
+          'Content-Type': 'application/json'
+          'X-LC-Id': 'xY1g1VfwXDcyrMLI0UWUjmKe-gzGzoHsz' 
+          'X-LC-Key': 'rRvdD9oizDgldNbbIpgFPd1X'
+        opts...
+      }
+      await @ctx.curl url, opts
+    
     token = config.wechat.token
     grant_type = config.wechat.grant_type
     appId = config.wechat.appId
@@ -58,7 +69,7 @@ export default (app) ->
         method: 'get'
         data: params
         dataType: 'json'
-      
+
       buf_code = new Buffer result_code.data
       end_code = JSON.parse buf_code.toString()
 
@@ -70,4 +81,16 @@ export default (app) ->
       buf_userInfo = new Buffer result_token.data
       dd JSON.parse buf_userInfo.toString()
       end_userInfo = JSON.parse buf_userInfo.toString()
+      
+      # add lc create
+      user = await @request1 "https://xy1g1vfw.api.lncld.net/1.1/users"
+      ,
+        method: 'post'
+        data:
+          username: end_userInfo.nickname
+          password: end_userInfo.openid
+          phoneNo: '110'
+        dataType: 'json'
+      dd user.data
+      user.data
       
