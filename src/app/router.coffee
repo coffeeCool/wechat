@@ -4,4 +4,6 @@ export default (app) ->
   app.post '/menu', app.controller.wechat.menu
   app.get '/code', app.controller.wechat.code
 
+  app.get '/todosWithUser', app.controller.wechat.todosWithUser
+
   return

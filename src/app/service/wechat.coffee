@@ -2,6 +2,7 @@ import config from '../config/config.default'
 import sha1 from 'sha1'
 import dd from 'ddeyes'
 import urlencode from 'urlencode'
+import queryString from 'query-string'
 
 export default (app) ->
   class WechatService extends app.Service
@@ -91,6 +92,31 @@ export default (app) ->
           password: end_userInfo.openid
           phoneNo: '110'
         dataType: 'json'
-      dd user.data
+
       user.data
       
+      # add lc class todo
+      classTodo = await @request1 "https://xy1g1vfw.api.lncld.net/1.1/classes/Todos"
+      ,
+        method: 'post'
+        data:
+          company: "#{end_userInfo.nickname}开的公司"
+          main: "#{end_userInfo.nickname}主营旅游和租房"
+          location: end_userInfo.country
+          pubUser: end_userInfo.nickname
+          user:
+            __type: 'Pointer'
+            className: "_User"
+            objectId: user.data.objectId
+
+      classTodo.data
+    
+    # todosWithUser
+    todosWithUser: (params) ->
+      qsEncode = urlencode JSON.stringify pubUser: '文韬'
+      result = await @request1 "https://xy1g1vfw.api.lncld.net/1.1/classes/Todos?where=#{qsEncode}"
+      ,
+        method: 'get'
+        data: params
+        dataType: 'json'
+      result.data
